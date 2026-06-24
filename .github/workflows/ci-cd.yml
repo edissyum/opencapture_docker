@@ -37,15 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Backend - pas de vérification dédiée pour l'instant
+        run: echo "Validation du backend déléguée au build Docker (job build-and-push)."
  
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-          cache: "pip"
-          cache-dependency-path: backend/pip-requirements.txt
- 
-      - name: Installer les dépendances
-        run: pip install -r backend/pip-requirements.txt
+
  
   # ----------------------------------------------------------------
   # 3. Build & push des images Docker (uniquement sur main)
